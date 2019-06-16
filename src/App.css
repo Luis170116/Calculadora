@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+.contenedor{
+  background-color: chartreuse
+}
+  .contenido{
+  display: flex;
+ 
+}
+.climalocalidad{
+  background-color: aqua
+}
+.climadetalle{
+  background-color: darkgoldenrod
+}
+.listadolocalidad{
+  background-color: gold
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
