@@ -6,10 +6,8 @@ constructor(){
 super()
 this.state = {
     Resultado:"",
-    Auxiliar:"",
-    Auxiliar1:"",
-    Auxiliar2:"",
-    Auxiliar3:"",
+    Agregar:"",
+    Designar:"",
 }
 } 
 clickAumentar =()=>{""
@@ -40,50 +38,76 @@ clickEnSeis =()=>{
     const {Resultado} = this.state; 
     this.setState({Resultado:Resultado +"6"})
 }
-clickEnSumar =()=>{
-const {Resultado} = this.state;
-this.setState({Auxiliar:Resultado,Resultado:""})
+clickEnSiete =()=>{
+    const {Resultado} = this.state; 
+    this.setState({Resultado:Resultado +"7"})
 }
-clickEnRestar =()=>{
-    const {Resultado} = this.state;
-    this.setState({Auxiliar1:Resultado,Resultado:""})
-    }
-    clickEnMultiplicar =()=>{
-        const {Resultado} = this.state;
-        this.setState({Auxiliar2:Resultado,Resultado:""})
-        }
-        clickEnDividir =()=>{
-            const {Resultado} = this.state;
-            this.setState({Auxiliar3:Resultado,Resultado:""})
-            }
-clickEnIgual =()=>{
-    const {Auxiliar,Resultado} = this.state; 
-    const sumaDeNumeros = parseInt(Auxiliar) + parseInt(Resultado) 
-    this.setState({Resultado:sumaDeNumeros})
-  switch (Auxiliar1) {
-      case value:
-          
-          break;
+clickEnOcho =()=>{
+    const {Resultado} = this.state; 
+    this.setState({Resultado:Resultado +"8"})
+}
+clickEnNueve =()=>{
+    const {Resultado} = this.state; 
+    this.setState({Resultado:Resultado +"9"})
+}
+clickEnCero =()=>{
+    const {Resultado} = this.state; 
+    this.setState({Resultado:Resultado +"0"})
+
+
+}
+clickEnSumar=()=>{
+    const {Resultado} =this.state;
   
-      default:
-          break;
-  }
-   const {Auxiliar1,Resultado} = this.state; 
-    const {Auxiliar1,Resultado} = this.state; 
-    const {Auxiliar2,Resultado} = this.state; 
-    const {Auxiliar3,Resultado} = this.state; 
-
-    
-    const restaDeNumeros = parseInt(Auxiliar1) - parseInt(Resultado) 
-    const multiplicarDeNumeros = parseInt(Auxiliar2) * parseInt(Resultado) 
-    const dividirDeNumeros = parseInt(Auxiliar3) / parseInt(Resultado) 
-
-
-this.setState({Resultado:restaDeNumeros})
-this.setState({Resultado:multiplicarDeNumeros})
-this.setState({Resultado:dividirDeNumeros})
+    this.setState({Resultado:''})
+    this.setState({Entregar:Resultado})
+    this.setState({Designar:'Suma'})
 }
-
+clickEnRestar=()=>{
+    const {Resultado} =this.state;
+  
+    this.setState({Resultado:''})
+    this.setState({Entregar:Resultado})
+    this.setState({Designar:'Resta'})
+}
+clickEnMultiplicar=()=>{
+    const {Resultado} =this.state;
+  
+    this.setState({Resultado:''})
+    this.setState({Entregar:Resultado})
+    this.setState({Designar:'Multiplicar'})
+        }
+        clickEnDividir=()=>{
+            const {Resultado} =this.state;
+          
+            this.setState({Resultado:''})
+            this.setState({Entregar:Resultado})
+            this.setState({Designar:'Dividir'})
+            }
+            clickPordos=()=>{
+                const {Resultado} =this.state;
+              const NuevoResultado =(parseInt(Resultado)*2)+"";
+                this.setState({Resultado:NuevoResultado })
+            }
+            clickEnIgual=()=>{
+                const {Resultado} =this.state;
+                const {Entregar} =this.state;
+                const {Designar} =this.state;
+                
+                if (Designar==='Suma') {
+                     const Suma = (parseInt(Entregar) +parseInt(Resultado)+"")
+               this.setState({Resultado:Suma})
+                } else if (Designar==='Resta') {
+                    const Suma = (parseInt(Entregar) -parseInt(Resultado)+"")
+              this.setState({Resultado:Suma})
+               } else if (Designar==='Dividir') {
+                const Suma = (parseInt(Entregar) /parseInt(Resultado)+"")
+                    this.setState({Resultado:Suma})
+                 } else if (Designar==='Multiplicar') {
+                const Suma = (parseInt(Entregar) *parseInt(Resultado)+"")
+                  this.setState({Resultado:Suma})
+       } 
+    }
 
 render(){
     const {Resultado} = this.state;
@@ -101,6 +125,12 @@ render(){
         <button onClick={this.clickEnCinco}>5</button>
         <button onClick={this.clickEnSeis}>6</button>
         <div></div>
+        <button onClick={this.clickEnSiete}>7</button>
+        <button onClick={this.clickEnOcho}>8</button>
+        <button onClick={this.clickEnNueve}>9</button>
+        <button onClick={this.clickEnCero}>0</button>
+       
+        <div></div>
         <button onClick={this.clickEnSumar}>+</button>
         <button onClick={this.clickEnRestar}>-</button>
         <button onClick={this.clickEnMultiplicar}>x</button>
@@ -108,11 +138,11 @@ render(){
         <button onClick={this.clickEnIgual}>=</button>
 
        
-        </div>
-        
-        
-    )
-}
+        Resultado :{Resultado}
+            </div>
+           
+        )
+        }
 }
 
 
